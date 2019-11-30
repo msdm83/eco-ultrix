@@ -1,61 +1,202 @@
 //points page map initialization
 function init2() {
-    var myMap = new ymaps.Map('map2', {
-            center: [60.01,30.67],
-            zoom: 11,
-            controls: ['zoomControl']
-        });
+  var myMap = new ymaps.Map('map2', {
+    center: [60.01,30.67],
+    zoom: 10,
+    controls: ['zoomControl']
+  });
+  let listNode = document.getElementById('point-list');
 
-      //ymaps.geocode('Всеволжск ул  Горсткина д. 14').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
+  //address to search
+  //ex:'г.Всеволожск,  микрорайон южный,	Добровольского 16/15'
+  function addPoint(address){
+    try{
+      ymaps.geocode(address).then(function (res) {
+        myMap.geoObjects.add(res.geoObjects);
 
-      ymaps.geocode('всеволжск,  микрорайон южный,	Добровольского 16/15	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Невская 11	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Московская 26/28	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Московская 19/5	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Невская 1/2	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Малиновского 6	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Знаменская 1/8	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Крымская 4	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Московская 27/5	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Центральная 10	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Центральная 10/1	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Московская 30	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Добровольского 20/1	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Доктора Сотникова 2	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Солнечная 2	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Доктора Сотникова 13	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Доктора Сотникова 29	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Южная Поляна	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Южная Поляна	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	ЖК Династия	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Центральная 2	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Аэропортовская 12	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Взлетная 12	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Колтушское 19	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Токкари Лэнд	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Токкари Лэнд	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Доктора Сотникова 25/27	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Комсомола 2	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Комсомола 7	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Комсомола 9	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Лубянская 2	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Лубянская 4	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	КП Кенша	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	ДНП Дружное	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	СНТ Родничковое	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Снт Придорожное 1	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Снт Придорожное 2	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Аэропортовская 1	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Аэропортовская 4	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Аэропортовская 5	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Аэропортовская 8	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Аэропортовская 12	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Центральная 11	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Московская 12	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Невская 6	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Народная 8	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
-      ymaps.geocode('всеволжск,  микрорайон южный,	Невская 12	').then(function (res) { myMap.geoObjects.add(res.geoObjects);});
+        let html ='<div class="col-md-4"><div class="single-defination"><h4>'
+          +res.geoObjects.get(0).properties.get('name')+'</h4><p>'
+          +address+'<br/><i style="color:#ccc">'+res.geoObjects.get(0).properties.get('text')+'</i></p></div></div>';
 
+        listNode.innerHTML +=html;
+      });
+    }catch(exception){
+      console.error(exception);
+    }
+  }
+
+
+  addPoint('г.Всеволожск,  микрорайон южный,	Добровольского 16/15	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Невская 11	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Московская 26/28	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Московская 19/5	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Невская 1/2	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Малиновского 6	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Знаменская 1/8	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Крымская 4	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Московская 27/5	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Центральная 10	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Центральная 10/1	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Московская 30	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Добровольского 20/1	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Доктора Сотникова 2	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Солнечная 2	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Доктора Сотникова 13	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Доктора Сотникова 29	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Южная Поляна	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Южная Поляна	');
+  addPoint('г.Всеволожск,  микрорайон южный,	ЖК Династия	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Центральная 2	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Аэропортовская 12	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Взлетная 12	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Колтушское 19	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Токкари Лэнд	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Токкари Лэнд	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Доктора Сотникова 25/27	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Комсомола 2	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Комсомола 7	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Комсомола 9	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Лубянская 2	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Лубянская 4	');
+  addPoint('г.Всеволожск,  микрорайон южный,	КП Кенша	');
+  addPoint('г.Всеволожск,  микрорайон южный,	ДНП Дружное	');
+  addPoint('г.Всеволожск,  микрорайон южный,	СНТ Родничковое	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Снт Придорожное 1	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Снт Придорожное 2	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Аэропортовская 1	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Аэропортовская 4	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Аэропортовская 5	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Аэропортовская 8	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Аэропортовская 12	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Центральная 11	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Московская 12	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Невская 6	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Народная 8	');
+  addPoint('г.Всеволожск,  микрорайон южный,	Невская 12	');
+
+addPoint('	г.Всеволожск,	Колтушское 124	');
+addPoint('	г.Всеволожск, 	Колтушское 80к2	');
+addPoint('	г.Всеволожск, 	Колтушское 44 	');
+addPoint('	г.Всеволожск, 	Колтушское 44 	');
+addPoint('	г.Всеволожск, 	ЖК Земляничная	');
+addPoint('	г.Всеволожск, 	Балашова 4	');
+addPoint('	г.Всеволожск, 	Балашова 10	');
+addPoint('	г.Всеволожск, 	Межевая ул.29	');
+addPoint('	г.Всеволожск, 	Межевая ул.15	');
+addPoint('	г.Всеволожск, 	Межевая 9	');
+addPoint('	г.Всеволожск, 	Сергиевская 89	');
+addPoint('	г.Всеволожск, 	Ленинградская 18	');
+addPoint('	г.Всеволожск, 	Александровская 79/2	');
+addPoint('	г.Всеволожск, 	Ленинградская 30/1	');
+addPoint('	г.Всеволожск, 	Плоткина 5	');
+addPoint('	г.Всеволожск, 	Христиновский пр.83	');
+addPoint('	г.Всеволожск, 	Ул. Героев 3/2	');
+addPoint('	г.Всеволожск, 	Ул. Героев 3/3	');
+addPoint('	г.Всеволожск, 	Плоткина 7	');
+addPoint('	г.Всеволожск, 	Октябрьский 106	');
+addPoint('	г.Всеволожск, 	Межевая 21	');
+addPoint('	г.Всеволожск, 	Вокка 8	');
+addPoint('	г.Всеволожск, 	Вокка 12	');
+addPoint('	г.Всеволожск, 	Ленинградская 15	');
+addPoint('	г.Всеволожск, 	Межевая 12	');
+addPoint('	г.Всеволожск, 	Плоткина 17	');
+addPoint('	г.Всеволожск, 	Вокка 1	');
+addPoint('	г.Всеволожск, 	Ленинградская 3	');
+addPoint('	г.Всеволожск, 	Александровская 77	');
+addPoint('	г.Всеволожск, 	Александровская 88/2	');
+addPoint('	г.Всеволожск, 	Ленинградская 5	');
+addPoint('	г.Всеволожск, 	Румболовский б.	');
+addPoint('	г.Всеволожск, 	Хаккапелита 1	');
+addPoint('	г.Всеволожск, 	Хаккапелита 2	');
+addPoint('	г.Всеволожск, 	Хаккапелита 3	');
+addPoint('	г.Всеволожск, 	Bonava 1	');
+addPoint('	г.Всеволожск, 	Bonava 2	');
+addPoint('	г.Всеволожск, 	Bonava 3	');
+addPoint('	г.Всеволожск, 	Bonava 4	');
+addPoint('	г.Всеволожск, 	Шевченко 12	');
+addPoint('	г.Всеволожск, 	Константиновская ул., д. 158	');
+addPoint('	г.Всеволожск, 	Александровская 76	');
+addPoint('	г.Всеволожск, 	Шевченко 18	');
+addPoint('	г.Всеволожск, 	Октябрьский 75	');
+addPoint('	г.Всеволожск, 	СНТ Спутник-2	');
+addPoint('	г.Всеволожск, 	Шишконя 16	');
+addPoint('	г.Всеволожск, 	Песочные Холмы	');
+addPoint('	г.Всеволожск, 	Новоладожская 95	');
+
+addPoint('	г.Всеволожск, микрорайон Бернгардовка, 	Победы 1	');
+addPoint('	г.Всеволожск, микрорайон Бернгардовка, 	Победы 12	');
+addPoint('	г.Всеволожск, микрорайон Бернгардовка, 	Дружбы 4/1	');
+addPoint('	г.Всеволожск, микрорайон Бернгардовка, 	Дружбы 4/3	');
+addPoint('	г.Всеволожск, микрорайон Бернгардовка, 	Верхняя 6	');
+addPoint('	г.Всеволожск, микрорайон Бернгардовка, 	Связи 2	');
+addPoint('	г.Всеволожск, микрорайон Бернгардовка, 	Связи 6	');
+addPoint('	г.Всеволожск, микрорайон Бернгардовка, 	Обороны 3/1	');
+addPoint('	г.Всеволожск, микрорайон Бернгардовка, 	Первомайский 3	');
+addPoint('	г.Всеволожск, микрорайон Бернгардовка, 	Боровая 19	');
+addPoint('	г.Всеволожск, микрорайон Бернгардовка, 	Советская 18	');
+addPoint('	г.Всеволожск, микрорайон Бернгардовка, 	Советская 28	');
+
+
+addPoint('	Всеволожский район, Мурино,	Шоссе в Лаврики 74	');
+addPoint('	Всеволожский район, Мурино,	Шоссе в Лаврики 83	');
+addPoint('	Всеволожский район, Мурино,	Шоссе в Лаврики 85	');
+addPoint('	Всеволожский район, Мурино,	Шоссе в Лаврики 87	');
+addPoint('	Всеволожский район, Мурино,	Авиаторов Балтики 13	');
+addPoint('	Всеволожский район, Мурино,	Авиаторов Балтики 15	');
+addPoint('	Всеволожский район, Мурино,	Авиаторов Балтики 17	');
+addPoint('	Всеволожский район, Мурино,	Шоссе в Лаврики 34	');
+addPoint('	Всеволожский район, Мурино,	Воронцовский бульвар, д. 2	');
+addPoint('	Всеволожский район, Мурино,	Воронцовский бульвар, д. 4	');
+addPoint('	Всеволожский район, Мурино,	ул. Шувалова д. 1	');
+addPoint('	Всеволожский район, Мурино,	ул. Шувалова д. 3	');
+addPoint('	Всеволожский район, Мурино,	ул. Оборонная 24	');
+addPoint('	Всеволожский район, Мурино,	ул. Оборонная 36	');
+addPoint('	Всеволожский район, Мурино,	ул. Новая д. 7 к3	');
+addPoint('	Всеволожский район, Мурино,	ул. Новая д. 11 к3	');
+addPoint('	Всеволожский район, Мурино,	ул. Новая д. 13 к1	');
+addPoint('	Всеволожский район, Мурино,	Шоссе в Лаврики 55	');
+addPoint('	Всеволожский район, Мурино,	Шоссе в Лаврики 59 	');
+addPoint('	Всеволожский район, Мурино,	Шоссе в Лаврики 59 	');
+addPoint('	Всеволожский район, Мурино,	Шоссе в Лаврики 59 	');
+addPoint('	Всеволожский район, Мурино,	ул. Новая д. 17	');
+
+addPoint('	Всеволожский район, Новое Девяткино,	ул. Лесная 2	');
+addPoint('	Всеволожский район, Новое Девяткино,	ул. Лесная 6	');
+addPoint('	Всеволожский район, Новое Девяткино,	ул. Озерная 3	');
+addPoint('	Всеволожский район, Новое Девяткино,	ул. Ветеранов 6	');
+addPoint('	Всеволожский район, Новое Девяткино,	Новое Девяткино 57	');
+addPoint('	Всеволожский район, Новое Девяткино,	Энергетиков 3	');
+
+addPoint('	г. Санкт-Петербург,	Аптекарский 18	');
+addPoint('	г. Санкт-Петербург,	Аптекарский 18	');
+addPoint('	г. Санкт-Петербург,	Аптекарский 18	');
+addPoint('	г. Санкт-Петербург,	Магнитогорская 3 к1	');
+addPoint('	г. Санкт-Петербург,	Магнитогорская 3 к2	');
+
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Железнодорожная 9	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Железнодорожная 30	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Молодежная 5	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Молодежная 19	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Школьная 2/4	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Школьная 3	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Ленинградское шоссе 12	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Юбилейная 28	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Р.Л. Иванова 8	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Заозерная 5	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Придорожная д.1 к. 2	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Придорожная д.1а к. 5	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Р.Л. Иванова 23	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Р.Л. Иванова 19	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Победы 4	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Победы 8	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Победы 11	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Железнодорожная 22	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Железнодорожная 14	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Молодежная 16	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Спортивная 3	');
+addPoint('	Всеволожский район, п.г. Кузьмоловский, 	ул. Заозерная 3	');
+
+addPoint('	Всеволожский район, ​п. Щеглово, ул. Луговая');
 
 }
 ymaps.ready(init2);
@@ -64,41 +205,41 @@ ymaps.ready(init2);
 
 //contact page map initialization
 function init1() {
-    var myMap = new ymaps.Map('map1', {
-            center: [59.94079856, 30.390491],
-            zoom: 11,
-            controls: ['zoomControl']
-        });
+  var myMap = new ymaps.Map('map1', {
+    center: [59.94079856, 30.390491],
+    zoom: 11,
+    controls: ['zoomControl']
+  });
 
-        var myPlacemark = new ymaps.Placemark([59.94079856, 30.390491], {
-            balloonContentHeader: 'Новгородская ул., 23',
-            balloonContentBody: 'Новгородская ул., 23, Санкт-Петербург, 191124',
-            hintContent: 'Новгородская ул., 23',
-            balloonContent:'Новгородская ул., 23',
-        });
+  var myPlacemark = new ymaps.Placemark([59.94079856, 30.390491], {
+    balloonContentHeader: 'Новгородская ул., 23',
+    balloonContentBody: 'Новгородская ул., 23, Санкт-Петербург, 191124',
+    hintContent: 'Новгородская ул., 23',
+    balloonContent:'Новгородская ул., 23',
+  });
 
-        myMap.geoObjects.add(myPlacemark);
-        myPlacemark.balloon.open();
+  myMap.geoObjects.add(myPlacemark);
+  myPlacemark.balloon.open();
 }
 ymaps.ready(init1);
 /*// Создаем коллекцию.
-  //  myCollection = new ymaps.GeoObjectCollection(),
+//  myCollection = new ymaps.GeoObjectCollection(),
 // Создаем массив с данными.
-    myPoints = [
-        { coords: [60.01, 30.675], text: 'Трактир' },
-        { coords: [60.01, 30.678], text: 'Кафе' },
-        { coords: [60.02, 30.54], text: 'Ресторан' },
-        { coords: [60.01, 30.676], text: 'Музей' },
-        { coords: [60.03, 30.671], text: 'Библиотека' },
-        { coords: [60.04, 30.672], text: 'Школа' },
-    ];
-    // Заполняем коллекцию данными.
-    for (var i = 0, l = myPoints.length; i < l; i++) {
-        var point = myPoints[i];
-        myCollection.add(new ymaps.Placemark(
-            point.coords, {
-                balloonContentBody: point.text
-            }
-        ));
-    }
-    //myMap.geoObjects.add(myCollection);*/
+myPoints = [
+{ coords: [60.01, 30.675], text: 'Трактир' },
+{ coords: [60.01, 30.678], text: 'Кафе' },
+{ coords: [60.02, 30.54], text: 'Ресторан' },
+{ coords: [60.01, 30.676], text: 'Музей' },
+{ coords: [60.03, 30.671], text: 'Библиотека' },
+{ coords: [60.04, 30.672], text: 'Школа' },
+];
+// Заполняем коллекцию данными.
+for (var i = 0, l = myPoints.length; i < l; i++) {
+var point = myPoints[i];
+myCollection.add(new ymaps.Placemark(
+point.coords, {
+balloonContentBody: point.text
+}
+));
+}
+//myMap.geoObjects.add(myCollection);*/

@@ -241,7 +241,7 @@ function init2() {
 }
 
 
-setTimeout(function(){console.log(fulltext)}, 10000);
+setTimeout(function(){console.log(fulltext)}, 15000);
 
 
 

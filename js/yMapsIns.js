@@ -19,7 +19,7 @@ function initPointsMap() {
   objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
   myMap.geoObjects.add(objectManager);
 
-  $.getJSON("/js/points.json", function(points) {
+  $.getJSON("js/points.json", function(points) {
       objectManager.add(points);
     })
   .fail(function(e) {
